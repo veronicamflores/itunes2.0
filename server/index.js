@@ -10,10 +10,11 @@ server.use(bp.json())
 server.use(bp.urlencoded({
   extended: true
 }))
-
+let songRoutes = require('./routes/song-route')
 let playlistRoutes = require('./routes/playlist-route')
 
-server.use('api/songs/', playlistRoutes)
+server.use('api/', playlistRoutes)
+server.use('api/songs', songRoutes)
 
 server.listen(port, () => {
   console.log('Running on Port:', port)
